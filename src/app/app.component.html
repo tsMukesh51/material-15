@@ -520,10 +520,12 @@
   </div>
   <!-- My Code -->
   <div id="my-select">
+    <mat-checkbox [checked]="isAllSelected()" (change)="toggleAllSelection($event)">Select All</mat-checkbox>
     <mat-form-field>
-      <mat-label>Fruits</mat-label>
+      <!-- <mat-label>Fruits</mat-label> -->
+      <!-- (selectionChange)="onOptionChange($event)" -->
       <mat-select [formControl]="fruits" multiple>
-        <input type="text" (input)="onSearch($event)" />
+        <input matInput placeholder="Search..." (input)="onSearch($event)" />
         <mat-option *ngFor="let fruit of fruitList" [value]="fruit.name">
           {{ fruit.label }}
         </mat-option>
